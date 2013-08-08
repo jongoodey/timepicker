@@ -9,7 +9,7 @@
     <th></th>
     <th></th>
   </tr>
-
+<% @a = Array.new %>
 <% @users.each do |user| %>
   <tr>
     <td><%= user.email %></td>
@@ -19,15 +19,19 @@
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
-  <% (1...51).each do |i| %>
-    <% unless i == user.date %>
-      <%= i.inspect %>
-    <% end %>
-  <% end%>
+  
+  <% @a << user.date %>
+    
 <% end %>
 </table>
 
 <br />
+<p>dates taken</p>
+<% @a.each do |a| %>
+   <%= a %> 
+<% end %>
+<br>
+<br>
 
 <%= link_to 'New User', new_user_path %>
 
