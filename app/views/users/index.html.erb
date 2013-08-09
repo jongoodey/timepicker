@@ -10,6 +10,9 @@
     <th></th>
   </tr>
 <% @a = Array.new %>
+<% @b = Array.new %>
+<% @c = Array.new %>
+
 <% @users.each do |user| %>
   <tr>
     <td><%= user.email %></td>
@@ -25,9 +28,22 @@
 <% end %>
 </table>
 
-<br />
-<p>dates taken</p>
+<% (1..50).each do |i| %>
+<% @b << i %>
+<% end %>
+
+<% (1..50).each do |i| %>
+<% @c << i %>
+<% end %>
+
+<p>dates available</p>
+<p>numbers from 1 - 50 </p>
 <% @a.each do |a| %>
+   <% a %> 
+   <% @c.delete(a) %> 
+<% end %>
+
+<% @c.each do |a| %>
    <%= a %> 
 <% end %>
 <br>
